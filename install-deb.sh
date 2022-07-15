@@ -13,6 +13,8 @@ install_pkgs() {
     [yY])
         echo "Installing packages..."
         pkgs="
+htop
+atop
 neofetch
 screen
 ssh
