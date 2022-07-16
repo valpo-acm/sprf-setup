@@ -13,6 +13,7 @@ install_pkgs() {
     [yY])
         echo "Installing packages..."
         pkgs="
+pdsh
 htop
 atop
 neofetch
