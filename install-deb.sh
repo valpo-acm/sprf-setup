@@ -13,6 +13,7 @@ install_pkgs() {
     [yY])
         echo "Installing packages..."
         pkgs="
+git
 pdsh
 htop
 atop
