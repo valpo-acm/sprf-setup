@@ -63,6 +63,7 @@ install_packages() {
     xi void-repo-nonfree
     pkgs="
 openssh
+base-devel
 net-tools
 docker
 mesa
