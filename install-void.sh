@@ -80,6 +80,9 @@ libXmu
 binutils
 libnfs
 nfs-utils
+sv-netmount
+openldap
+openldap-tools
 atop
 htop
 
@@ -87,6 +90,7 @@ gparted
 gnome-disk-utility
 wireshark
 xterm
+lxappearance
 firefox
 chromium
 
@@ -95,14 +99,20 @@ emacs-gtk3
 neovim
 vim
 nano
-intellij-idea-community-edition
+eclipse
 
 xorg
 radeontop
 mesa-vaapi
 mesa-vdpau
 WindowMaker
+9wm
 gnome
+cinnamon
+kde5
+kde5-baseapps
+lxdm
+dbus
 
 octave
 maxima
@@ -120,7 +130,6 @@ ccl
 go
 rust
 gprolog
-scryer-prolog
 ruby
 julia
 gcc-fortran
@@ -131,7 +140,7 @@ R
 }
 
 configure_void() {
-    echo "$HOST" >/mnt/etc/HOST
+    echo "$HOST" >/mnt/etc/hostname
     # Glibc specific - set locale
     echo "en_US.UTF-8 UTF-8" >/mnt/etc/locale.gen
     xbps-reconfigure -r /mnt -f glibc-locales
@@ -164,7 +173,7 @@ EOF
     chmod +x /mnt/finishup.sh
     cat <<EOF >/mnt/afterreboot.sh
 #!/bin/sh
-for s in dhcpcd; do
+for s in dhcpcd dbus lxdm; do
     ln -s /etc/sv/\$s /var/service
 done
 EOF
