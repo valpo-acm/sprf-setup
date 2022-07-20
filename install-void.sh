@@ -93,6 +93,7 @@ openldap
 openldap-tools
 atop
 htop
+neofetch
 
 gparted
 gnome-disk-utility
