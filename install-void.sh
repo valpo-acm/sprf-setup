@@ -15,6 +15,13 @@
 DISK="${DISK:-/dev/sdb}"
 HOST="${HOST:-labpc}"
 ROOTPASS="${ROOTPASS:-changeme}"
+# A comma separated list of users, with their uid number separed by a colon.
+# EX: USERS="nrosasco:1000,mpiuser:5959"
+if [ -n $USERS ]; then
+    USERS="$USERS"
+else
+    USERS="nrosasco:1000"
+fi
 # Void's glibc repo
 REPO=https://repo-default.voidlinux.org/current
 # Arch of the computer we are installing onto
@@ -166,6 +173,13 @@ finalize() {
 #!/bin/sh
 yes "$ROOTPASS" | passwd
 chsh -s /bin/bash root
+for up in $(echo $USERS | tr ',' ' '); do
+    name=\$(echo \$up | cut -d':' -f1)
+    inum=\$(echo \$up | cut -d':' -f2)
+    useradd -m -u \$inum \$name
+    chsh -s /bin/bash \$name
+    yes "$ROOTPASS" | passwd \$name
+done
 grub-install "$DISK"
 grub-mkconfig -o /boot/grub/grub.cfg
 xbps-reconfigure -fa
