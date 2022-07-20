@@ -107,7 +107,6 @@ radeontop
 mesa-vaapi
 mesa-vdpau
 WindowMaker
-9wm
 gnome
 cinnamon
 kde5
@@ -174,7 +173,7 @@ EOF
     chmod +x /mnt/finishup.sh
     cat <<EOF >/mnt/afterreboot.sh
 #!/bin/sh
-for s in dhcpcd dbus lxdm; do
+for s in dhcpcd dbus lxdm sshd; do
     ln -s /etc/sv/\$s /var/service
 done
 EOF
