@@ -109,6 +109,7 @@ neovim
 vim
 nano
 eclipse
+rstudio
 
 xorg
 radeontop
