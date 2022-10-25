@@ -10,7 +10,7 @@ import (
 
 func update_repo() {
 	for {
-		_, err := exec.Command("git pull").Output()
+		_, err := exec.Command("git", "pull").Output()
 		if err != nil {
 			fmt.Printf("%s", err)
 		}
