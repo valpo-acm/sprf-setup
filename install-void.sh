@@ -17,11 +17,8 @@ HOST="${HOST:-labpc}"
 ROOTPASS="${ROOTPASS:-changeme}"
 # A comma separated list of users, with their uid number separed by a colon.
 # EX: USERS="nrosasco:1000,mpiuser:5959"
-if [ -n $USERS ]; then
-    USERS="$USERS"
-else
-    USERS="nrosasco:1000"
-fi
+USERS="${USERS:-'nrosasco:1000'}"
+
 # Void's glibc repo
 REPO=https://repo-default.voidlinux.org/current
 # Arch of the computer we are installing onto
