@@ -115,7 +115,7 @@ for s in dhcpcd dbus lxdm sshd; do
 done
 EOF
     chmod +x /mnt/afterreboot.sh
-    ./kiss-chroot /mnt
+    echo "sh /finishup.sh"  | ./kiss-chroot /mnt
 }
 
 main() {
