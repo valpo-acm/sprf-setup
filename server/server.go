@@ -1,18 +1,18 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 	"os/exec"
 	"time"
 )
 
+// Runs 'git pull' every hour, blocking.
 func update_repo() {
 	for {
 		_, err := exec.Command("git", "pull").Output()
 		if err != nil {
-			fmt.Printf("%s", err)
+			log.Printf("%s", err)
 		}
 		time.Sleep(1 * time.Hour)
 	}
@@ -20,6 +20,7 @@ func update_repo() {
 
 func main() {
 
+	// In a separate goroutine, run 'update_repo'
 	go update_repo()
 
 	port := "8100"
