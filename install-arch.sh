@@ -24,7 +24,7 @@ err() {
 }
 
 pi() {
-    pacman --sysroot /mnt --noconfirm -S "$@"
+    pacman --sysroot /mnt --noconfirm -Su "$@"
 }
 
 check_env() {
