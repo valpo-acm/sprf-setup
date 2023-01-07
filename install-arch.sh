@@ -99,7 +99,7 @@ EOF
     cat <<EOF >/mnt/afterreboot.sh
 #!/bin/sh
 for s in dhcpcd dbus lxdm sshd; do
-    ln -s /etc/sv/\$s /var/service
+    systemctl enable \$s
 done
 EOF
     chmod +x /mnt/afterreboot.sh
