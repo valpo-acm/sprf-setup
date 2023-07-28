@@ -2,7 +2,8 @@
 
 # Author       : Spencer Gannon
 # Description  : Does all of the tedious installs for Valparaiso
-#                University's CIS Department Ubuntu/Linux machines
+#                University's CIS Department Ubuntu/Linux machines.
+#                Written for Ubuntu 22.04, may not work on older versions.
 # Instructions : Run using sudo (?) or as root user
 
 install_pkgs() {
